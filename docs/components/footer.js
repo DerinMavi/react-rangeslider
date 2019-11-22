@@ -7,7 +7,7 @@ function Footer () {
         <p>
           The project is under Open Source
           {' '}
-          <a href='https://github.com/whoisandy/react-rangeslider/blob/master/LICENSE'>
+          <a href='https://github.com/DerinMavi/react-rangeslider/blob/master/LICENSE'>
             MIT License
           </a>
         </p>
@@ -18,7 +18,7 @@ function Footer () {
           {' '}
           • Maintained by
           {' '}
-          <a href='http://github.com/whoisandy'>whoisandy</a>
+          <a href='http://github.com/DerinMavi'>DerinMavi</a>
         </p>
         <p>© 2015 Bhargav Anand</p>
       </section>

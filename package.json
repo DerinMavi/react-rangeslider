@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/whoisandy/react-rangeslider.git"
+    "url": "https://github.com/DerinMavi/react-inputrange.git"
   },
   "files": [
     "lib",
@@ -45,18 +45,18 @@
     "slider"
   ],
   "author": {
-    "name": "Bhargav Anand",
-    "email": "rjn143@gmail.com",
-    "url": "github.com/whoisandy"
+    "name": "DerinMavi",
+    "email": "",
+    "url": "github.com/DerinMavi"
   },
   "engines": {
     "node": ">=4"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/whoisandy/react-rangeslider/issues"
+    "url": "https://github.com/DerinMavi/react-rangeslider/issues"
   },
-  "homepage": "https://github.com/whoisandy/react-rangeslider#readme",
+  "homepage": "https://github.com/DerinMavi/react-rangeslider#readme",
   "devDependencies": {
     "babel": "^6.23.0",
     "babel-cli": "^6.26.0",

@@ -11,19 +11,19 @@ function Header () {
       <p style={{ marginTop: 20, textAlign: 'center' }}>
         Please refer to the source on
         {' '}
-        <a href='http://github.com/whoisandy/react-rangeslider'>Github</a>
+        <a href='http://github.com/DerinMavi/react-rangeslider'>Github</a>
       </p>
       <div style={{ textAlign: 'center' }}>
         <GitHubButton
           size='large'
           type='stargazers'
-          namespace='whoisandy'
+          namespace='DerinMavi'
           repo='react-rangeslider'
         />
         <GitHubButton
           size='large'
           type='forks'
-          namespace='whoisandy'
+          namespace='DerinMavi'
           repo='react-rangeslider'
         />
       </div>

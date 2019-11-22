@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://whoisandy.github.io/react-rangeslider/">
-    <img alt="react-rangeslider" src="https://github.com/whoisandy/react-rangeslider/blob/master/docs/images/rangeslider_dark.png" width="280">
+  <a href="https://DerinMavi.github.io/react-rangeslider/">
+    <img alt="react-rangeslider" src="https://github.com/DerinMavi/react-rangeslider/blob/master/docs/images/rangeslider_dark.png" width="280">
   </a>
 </p>
 
@@ -12,11 +12,11 @@
   <a href="https://www.npmjs.org/package/react-rangeslider">
     <img src="https://img.shields.io/npm/v/react-rangeslider.svg?style=flat-square">
   </a>
-  <a href="https://github.com/whoisandy/react-rangeslider/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/whoisandy/react-rangeslider.svg">
+  <a href="https://github.com/DerinMavi/react-rangeslider/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/DerinMavi/react-rangeslider.svg">
   </a>
-  <a href="https://travis-ci.org/whoisandy/react-rangeslider">
-    <img src="https://api.travis-ci.org/whoisandy/react-rangeslider.svg">
+  <a href="https://travis-ci.org/DerinMavi/react-rangeslider">
+    <img src="https://api.travis-ci.org/DerinMavi/react-rangeslider.svg">
   </a>
   <a href="http://standardjs.com">
     <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" />
@@ -66,7 +66,7 @@ You can find the library on `window.ReactRangeslider`. Optionally you can drop i
 ```html
 <link rel="stylesheet" href="https://unpkg.com/react-rangeslider/umd/rangeslider.min.css" />
 ```
-Check out [docs & examples](https://whoisandy.github.io/react-rangeslider).
+Check out [docs & examples](https://DerinMavi.github.io/react-rangeslider).
 
 ## Basic Example
 
@@ -162,12 +162,12 @@ MIT
 
 [npm_img]: https://img.shields.io/npm/v/react-rangeslider.svg?style=flat-square
 [npm_site]: https://www.npmjs.org/package/react-rangeslider
-[license_img]: https://img.shields.io/github/license/whoisandy/react-rangeslider.svg
-[license_site]: https://github.com/whoisandy/react-rangeslider/blob/master/LICENSE
+[license_img]: https://img.shields.io/github/license/DerinMavi/react-rangeslider.svg
+[license_site]: https://github.com/DerinMavi/react-rangeslider/blob/master/LICENSE
 [npm_dm_img]: http://img.shields.io/npm/dm/react-rangeslider.svg?style=flat-square
 [npm_dm_site]: https://www.npmjs.org/package/react-rangeslider
-[trav_img]: https://api.travis-ci.org/whoisandy/react-rangeslider.svg
-[trav_site]: https://travis-ci.org/whoisandy/react-rangeslider
+[trav_img]: https://api.travis-ci.org/DerinMavi/react-rangeslider.svg
+[trav_site]: https://travis-ci.org/DerinMavi/react-rangeslider
 [std_img]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [std_site]: http://standardjs.com
 [unpkg]: https://unpkg.com/react-rangeslider/umd/ReactRangeslider.min.js
