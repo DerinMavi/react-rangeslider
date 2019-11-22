@@ -3,11 +3,11 @@ import { Horizontal, Negative, Float, Labels, Orientation } from './sliders'
 import Demo from './Demo'
 import Codeblock from './Codeblock'
 
-import horizontalExample from '!raw!./sliders/horizontal'
-import negativeExample from '!raw!./sliders/negative'
-import floatExample from '!raw!./sliders/float'
-import labelsExample from '!raw!./sliders/labels'
-import orientationExample from '!raw!./sliders/orientation'
+import horizontalExample from './sliders/horizontal'
+import negativeExample from './sliders/negative'
+import floatExample from './sliders/float'
+import labelsExample from './sliders/labels'
+import orientationExample from './sliders/orientation'
 
 class Examples extends Component {
   render () {

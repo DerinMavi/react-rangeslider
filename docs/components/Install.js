@@ -9,13 +9,13 @@ function Install () {
         Using npm (use <code>--save</code> to include it in your package.json)
       </p>
       <Codeblock>
-        {`$ npm install react-rangeslider --save`}
+        $ npm install react-inputrange --save
       </Codeblock>
       <p>
         Using yarn (use <code>--dev</code> to include it in your package.json)
       </p>
       <Codeblock>
-        {`$ yarn add react-rangeslider --save`}
+        $ yarn add react-inputrange --save
       </Codeblock>
     </section>
   )

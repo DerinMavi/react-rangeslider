@@ -41,7 +41,7 @@ class Slider extends Component {
     onChangeStart: PropTypes.func,
     onChange: PropTypes.func,
     onChangeComplete: PropTypes.func
-  };
+  }
 
   static defaultProps = {
     min: 0,
@@ -53,7 +53,7 @@ class Slider extends Component {
     reverse: false,
     labels: {},
     handleLabel: ''
-  };
+  }
 
   constructor (props, context) {
     super(props, context)
@@ -79,7 +79,7 @@ class Slider extends Component {
   handleFormat = value => {
     const { format } = this.props
     return format ? format(value) : value
-  };
+  }
 
   /**
    * Update slider state on change
@@ -99,7 +99,7 @@ class Slider extends Component {
       limit: sliderPos - handlePos,
       grab: handlePos / 2
     })
-  };
+  }
 
   /**
    * Attach event listeners to mousemove/mouseup events
@@ -117,7 +117,7 @@ class Slider extends Component {
         onChangeStart && onChangeStart(e)
       }
     )
-  };
+  }
 
   /**
    * Handle drag/mousemove event
@@ -141,7 +141,7 @@ class Slider extends Component {
     }
 
     onChange && onChange(value, e)
-  };
+  }
 
   /**
    * Detach event listeners to mousemove/mouseup events
@@ -159,7 +159,7 @@ class Slider extends Component {
     )
     document.removeEventListener('mousemove', this.handleDrag)
     document.removeEventListener('mouseup', this.handleEnd)
-  };
+  }
 
   /**
    * Support for key events on the slider handle
@@ -184,7 +184,7 @@ class Slider extends Component {
         onChange && onChange(sliderValue, e)
         break
     }
-  };
+  }
 
   /**
    * Calculate position of slider based on its value
@@ -200,7 +200,7 @@ class Slider extends Component {
     const pos = Math.round(percentage * limit)
 
     return pos
-  };
+  }
 
   /**
    * Translate position of slider to slider value
@@ -215,7 +215,7 @@ class Slider extends Component {
     const value = orientation === 'horizontal' ? baseVal + min : max - baseVal
 
     return clamp(value, min, max)
-  };
+  }
 
   /**
    * Calculate position of slider based on value
@@ -242,7 +242,7 @@ class Slider extends Component {
     const value = this.getValueFromPosition(pos)
 
     return value
-  };
+  }
 
   /**
    * Grab coordinates of slider
@@ -264,7 +264,7 @@ class Slider extends Component {
       handle: handlePos,
       label: handlePos
     }
-  };
+  }
 
   renderLabels = labels => (
     <ul
@@ -275,7 +275,7 @@ class Slider extends Component {
     >
       {labels}
     </ul>
-  );
+  )
 
   render () {
     const {
@@ -298,15 +298,15 @@ class Slider extends Component {
     const coords = this.coordinates(position)
     const fillStyle = { [dimension]: `${coords.fill}px` }
     const handleStyle = { [direction]: `${coords.handle}px` }
-    let showTooltip = tooltip && active
+    const showTooltip = tooltip && active
 
-    let labelItems = []
+    const labelItems = []
     let labelKeys = Object.keys(labels)
 
     if (labelKeys.length > 0) {
       labelKeys = labelKeys.sort((a, b) => (reverse ? a - b : b - a))
 
-      for (let key of labelKeys) {
+      for (const key of labelKeys) {
         const labelPosition = this.getPositionFromValue(key)
         const labelCoords = this.coordinates(labelPosition)
         const labelStyle = { [direction]: `${labelCoords.label}px` }
@@ -366,9 +366,9 @@ class Slider extends Component {
                 this.tooltip = st
               }}
               className='rangeslider__handle-tooltip'
-              >
-              <span>{this.handleFormat(value)}</span>
-            </div>
+              >{/* eslint-disable-line indent */}
+              <span>{this.handleFormat(value)}</span>{/* eslint-disable-next-line indent, react/jsx-indent */}
+              </div>
             : null}
           <div className='rangeslider__handle-label'>{handleLabel}</div>
         </div>
