@@ -10,3 +10,4 @@ umd
 package-lock.json
 .idea/
 src/__tests__/__snapshots__/
+dist/
