@@ -26,6 +26,7 @@ const constants = {
   }
 }
 
+// eslint-disable-next-line no-unused-vars
 class Slider extends Component {
   static propTypes = {
     min: PropTypes.number,

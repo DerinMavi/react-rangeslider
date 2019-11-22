@@ -15,9 +15,9 @@
     "build:less:umd": "lessc ./src/Rangeslider.less ./umd/rangeslider.css",
     "build:less:umd:min": "lessc --clean-css ./src/Rangeslider.less ./umd/rangeslider.min.css",
     "build:lib": "cross-env NODE_ENV=production babel ./src --stage 0 -d ./lib  --ignore __tests__",
-    "build:umd": "cross-env NODE_ENV=production webpack ./src/index.js ./umd/rangeslider.js",
-    "build:min": "cross-env NODE_ENV=production webpack -p ./src/index.js ./umd/rangeslider.min.js",
-    "build:docs": "cross-env NODE_ENV=production webpack -p --config=docs/webpack.config.js",
+    "build:umd": "cross-env NODE_ENV=production webpack --mode=development ./src/index.js --output ./umd/rangeslider.js",
+    "build:min": "cross-env NODE_ENV=production webpack --mode=production ./src/index.js --output ./umd/rangeslider.min.js",
+    "build:docs": "cross-env NODE_ENV=production webpack --mode=production --config=docs/webpack.config.js",
     "build": "npm run build:less && npm run build:lib && npm run build:umd && npm run build:min && npm run build:less:umd && npm run build:less:umd:min",
     "prebuild": "npm run clean:lib && npm test",
     "docs": "npm run clean:docs && npm run build:docs && cpy docs/favicon.ico public/",
@@ -58,21 +58,36 @@
   },
   "homepage": "https://github.com/DerinMavi/react-rangeslider#readme",
   "devDependencies": {
-    "babel": "^6.23.0",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-proposal-decorators": "^7.7.0",
+    "@babel/plugin-proposal-do-expressions": "^7.6.0",
+    "@babel/plugin-proposal-export-default-from": "^7.5.2",
+    "@babel/plugin-proposal-export-namespace-from": "^7.5.2",
+    "@babel/plugin-proposal-function-bind": "^7.2.0",
+    "@babel/plugin-proposal-function-sent": "^7.7.0",
+    "@babel/plugin-proposal-json-strings": "^7.2.0",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.2.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.4.4",
+    "@babel/plugin-proposal-numeric-separator": "^7.2.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.6.0",
+    "@babel/plugin-proposal-pipeline-operator": "^7.5.0",
+    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-syntax-import-meta": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@babel/register": "^7.7.0",
     "babel-eslint": "^10.0.3",
     "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
-    "babel-preset-es2015": "^6.24.1",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "babel-register": "^6.26.0",
     "cpy-cli": "^2.0.0",
     "cross-env": "^6.0.3",
     "css-loader": "^3.2.0",
     "del-cli": "^3.0.0",
     "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
     "eslint": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-config-standard-jsx": "^8.1.0",
@@ -85,7 +100,7 @@
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-standard": "^4.0.1",
     "express": "^4.17.1",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^4.3.0",
     "gh-pages": "^2.1.1",
     "highlight.js": "^9.16.2",
@@ -99,7 +114,6 @@
     "prop-types": "^15.7.2",
     "raw-loader": "^3.1.0",
     "react": "^16.12.0",
-    "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.12.0",
     "react-ga": "^2.7.0",
     "react-github-button": "^0.1.11",
@@ -112,7 +126,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.6",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "webpack-cli": "^3.3.10"
   },
   "peerDependencies": {
     "react": "^16.12.0"
@@ -120,6 +135,10 @@
   "jest": {
     "moduleNameMapper": {
       ".*\\.less$": "<rootDir>/src/"
-    }
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ]
   }
 }

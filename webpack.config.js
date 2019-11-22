@@ -1,7 +1,7 @@
 'use strict'
 
-var path = require('path')
-var ExtractPlugin = require('extract-text-webpack-plugin')
+const path = require('path')
+const ExtractPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'index'),
@@ -11,16 +11,16 @@ module.exports = {
     libraryTarget: 'umd'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js?$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        use: 'babel-loader'
       },
       {
         test: /\.less$/,
         exclude: /node_modules/,
-        loader: ExtractPlugin.extract('style-loader', 'css-loader!less-loader')
+        use: ExtractPlugin.extract('style-loader', 'css-loader!less-loader')
       }
     ]
   },

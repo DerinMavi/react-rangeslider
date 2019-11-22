@@ -8,4 +8,5 @@ public
 lib
 umd
 package-lock.json
-.idea
+.idea/
+src/__tests__/__snapshots__/

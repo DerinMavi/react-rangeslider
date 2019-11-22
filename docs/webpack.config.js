@@ -23,12 +23,12 @@ var config = {
   resolve: {
     extensions: ['', '.js', '.css', '.less'],
     alias: {
-      'react-rangeslider': path.join(__dirname, '../src/index.js')
+      'react-inputrange': path.join(__dirname, '../src/index.js')
     }
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
@@ -65,7 +65,7 @@ var config = {
 
 // Dev config
 if (process.env.NODE_ENV === 'development') {
-  config.module.loaders.push({
+  config.module.rules.push({
     test: /\.less$/,
     exclude: /node_modules/,
     loader: 'style!css!less'
@@ -83,7 +83,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Build config
 if (process.env.NODE_ENV === 'production') {
-  config.module.loaders.push([
+  config.module.rules.push([
     {
       test: /\.less$/,
       exclude: /node_modules/,
