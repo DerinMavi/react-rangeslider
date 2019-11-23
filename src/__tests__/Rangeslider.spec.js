@@ -24,7 +24,9 @@ describe('Rangeslider specs', () => {
     expect(slider.prop('orientation')).toEqual('horizontal')
     expect(slider.prop('reverse')).toEqual(false)
     expect(slider.prop('handleLabel')).toEqual('')
+    expect(slider.prop('tooltip')).toEqual('on')
     expect(slider.prop('labels')).toEqual({})
+    expect(slider.prop('disabled')).toEqual(false)
   })
 
   it('should render basic slider with defaults', () => {
