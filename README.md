@@ -137,6 +137,7 @@ Prop   	 			 |  Type      |  Default      |  Description
 `orientation`  |  string    |  horizontal   |  orientation of the slider
 `tooltip`      |  enum   |  'on'         |  sets the tooltip display mode, one of ['off', 'on', 'always']
 `reverse`  		 |  boolean   |  false			  |  reverse direction of vertical slider (top-bottom)
+`disabled`  		 |  boolean   |  false			  |  disable the component
 `labels`       |  object    |  {}           |  object containing key-value pairs. `{ 0: 'Low', 50: 'Medium', 100: 'High'}`
 `handleLabel`  |  string    |  ''           |  string label to appear inside slider handles
 `format`     |  function  |               |  function to format and display the value in label or tooltip

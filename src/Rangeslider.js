@@ -36,6 +36,7 @@ class Slider extends Component {
     orientation: PropTypes.string,
     tooltip: PropTypes.oneOf(['off', 'on', 'always']),
     reverse: PropTypes.bool,
+    disabled: PropTypes.bool,
     labels: PropTypes.object,
     handleLabel: PropTypes.string,
     format: PropTypes.func,
@@ -54,7 +55,7 @@ class Slider extends Component {
     reverse: false,
     labels: {},
     handleLabel: '',
-    alwaysShowTooltip: false
+    disabled: false
   }
 
   constructor (props, context) {
@@ -92,6 +93,9 @@ class Slider extends Component {
       // for shallow rendering
       return
     }
+    if (this.props.disabled) {
+      return
+    }
     const { orientation } = this.props
     const dimension = capitalize(constants.orientation[orientation].dimension)
     const sliderPos = this.slider[`offset${dimension}`]
@@ -108,6 +112,9 @@ class Slider extends Component {
    * @return {void}
    */
   handleStart = e => {
+    if (this.props.disabled) {
+      return
+    }
     const { onChangeStart } = this.props
     document.addEventListener('mousemove', this.handleDrag)
     document.addEventListener('mouseup', this.handleEnd)
@@ -127,6 +134,9 @@ class Slider extends Component {
    * @return {void}
    */
   handleDrag = e => {
+    if (this.props.disabled) {
+      return
+    }
     e.stopPropagation()
     const { onChange } = this.props
     const { target: { className, classList, dataset } } = e
@@ -150,6 +160,9 @@ class Slider extends Component {
    * @return {void}
    */
   handleEnd = e => {
+    if (this.props.disabled) {
+      return
+    }
     const { onChangeComplete } = this.props
     this.setState(
       {
@@ -169,6 +182,9 @@ class Slider extends Component {
    * @return {void}
    */
   handleKeyDown = e => {
+    if (this.props.disabled) {
+      return
+    }
     const { keyCode } = e
     const { value, min, max, step, onChange } = this.props
     let sliderValue
@@ -338,7 +354,10 @@ class Slider extends Component {
         className={cx(
           'rangeslider',
           `rangeslider-${orientation}`,
-          { 'rangeslider-reverse': reverse },
+          {
+            'rangeslider-reverse': reverse,
+            'rangeslider-disabled': this.props.disabled
+          },
           className
         )}
         onMouseDown={this.handleDrag}

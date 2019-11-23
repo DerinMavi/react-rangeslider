@@ -16,6 +16,7 @@ export interface SliderProps {
     orientation?: string,
     tooltip?: TooltipSetting,
     reverse?: boolean,
+    disabled?: boolean,
     labels?: object,
     handleLabel?: string,
     format?: Function,
