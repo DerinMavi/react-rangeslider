@@ -172,12 +172,11 @@ class Slider extends Component {
    * @return {void}
    */
   handleEnd = e => {
-    const { onChangeComplete } = this.props
-    if (this.props.disabled || !onChangeComplete) {
+    if (this.props.disabled) {
       return
     }
-    e.stopPropagation()
 
+    const { onChangeComplete } = this.props
     const value = this.getValue(e)
     this.setState(
       {
