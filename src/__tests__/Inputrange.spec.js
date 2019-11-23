@@ -1,18 +1,18 @@
 import React from 'react'
 import { shallow, mount, configure } from 'enzyme'
 import renderer from 'react-test-renderer'
-import Slider from '../Rangeslider'
+import Slider from '../Inputrange'
 import Adapter from 'enzyme-adapter-react-16'
 
 configure({ adapter: new Adapter() })
 
-describe('Rangeslider specs', () => {
+describe('Inputrange specs', () => {
   it('should render properly', () => {
     const slider = shallow(<Slider />)
-    expect(slider.hasClass('rangeslider')).toBeTruthy()
+    expect(slider.hasClass('inputrange')).toBeTruthy()
     expect(slider.children().length).toEqual(3)
-    expect(slider.find('.rangeslider__fill').length).toEqual(1)
-    expect(slider.find('.rangeslider__handle').length).toEqual(1)
+    expect(slider.find('.inputrange__fill').length).toEqual(1)
+    expect(slider.find('.inputrange__handle').length).toEqual(1)
   })
 
   it('should have default props', () => {

@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://DerinMavi.github.io/react-rangeslider/">
-    <img alt="react-rangeslider" src="https://github.com/DerinMavi/react-rangeslider/blob/master/docs/images/rangeslider_dark.png" width="280">
+  <a href="https://DerinMavi.github.io/react-inputrange/">
+    <img alt="react-inputrange" src="https://github.com/DerinMavi/react-inputrange/blob/master/docs/images/inputrange_dark.png" width="280">
   </a>
 </p>
 
@@ -9,20 +9,20 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.org/package/react-rangeslider">
-    <img src="https://img.shields.io/npm/v/react-rangeslider.svg?style=flat-square">
+  <a href="https://www.npmjs.org/package/react-inputrange">
+    <img src="https://img.shields.io/npm/v/react-inputrange.svg?style=flat-square">
   </a>
-  <a href="https://github.com/DerinMavi/react-rangeslider/blob/master/LICENSE">
-    <img src="https://img.shields.io/github/license/DerinMavi/react-rangeslider.svg">
+  <a href="https://github.com/DerinMavi/react-inputrange/blob/master/LICENSE">
+    <img src="https://img.shields.io/github/license/DerinMavi/react-inputrange.svg">
   </a>
-  <a href="https://travis-ci.org/DerinMavi/react-rangeslider">
-    <img src="https://api.travis-ci.org/DerinMavi/react-rangeslider.svg">
+  <a href="https://travis-ci.org/DerinMavi/react-inputrange">
+    <img src="https://api.travis-ci.org/DerinMavi/react-inputrange.svg">
   </a>
   <a href="http://standardjs.com">
     <img src="https://img.shields.io/badge/code%20style-standard-brightgreen.svg" />
   </a>
-  <a href="https://www.npmjs.org/package/react-rangeslider">
-    <img src="http://img.shields.io/npm/dm/react-rangeslider.svg?style=flat-square">
+  <a href="https://www.npmjs.org/package/react-inputrange">
+    <img src="http://img.shields.io/npm/dm/react-inputrange.svg?style=flat-square">
   </a>
 </p>
 
@@ -30,49 +30,49 @@
 Using `npm` (use `--save` to include it in your package.json)
 
 ```bash
-$ npm install react-rangeslider --save
+$ npm install react-inputrange --save
 ```
 
-Using `yarn` (this command also adds react-rangeslider to your package.json dependencies)
+Using `yarn` (this command also adds react-inputrange to your package.json dependencies)
 
 ```bash
-$ yarn add react-rangeslider
+$ yarn add react-inputrange
 ```
 
 
 ## Getting Started
-React-Rangeslider is bundled with a slider component & default styles which can be overridden depending on your design requirements.
+React-inputrange is bundled with a slider component & default styles which can be overridden depending on your design requirements.
 
 With a module bundler like webpack that supports either CommonJS or ES2015 modules, use as you would anything else:
 
 ```js
 // Using an ES6 transpiler like Babel
-import Slider from 'react-rangeslider'
+import Slider from 'react-inputrange'
 
 // To include the default styles
-import 'react-rangeslider/lib/index.css'
+import 'react-inputrange/lib/index.css'
 
 // Not using an ES6 transpiler
-var Slider = require('react-rangeslider')
+var Slider = require('react-inputrange')
 ```
 
 The UMD build is also available on [unpkg][unpkg]:
 
 ```html
-<script src="https://unpkg.com/react-rangeslider/umd/rangeslider.min.js"></script>
+<script src="https://unpkg.com/react-inputrange/umd/inputrange.min.js"></script>
 ```
 
-You can find the library on `window.ReactRangeslider`. Optionally you can drop in the default styles by adding the stylesheet.
+You can find the library on `window.ReactInputrange`. Optionally you can drop in the default styles by adding the stylesheet.
 ```html
-<link rel="stylesheet" href="https://unpkg.com/react-rangeslider/umd/rangeslider.min.css" />
+<link rel="stylesheet" href="https://unpkg.com/react-inputrange/umd/inputrange.min.css" />
 ```
-Check out [docs & examples](https://DerinMavi.github.io/react-rangeslider).
+Check out [docs & examples](https://DerinMavi.github.io/react-inputrange).
 
 ## Basic Example
 
 ```jsx
 import React, { Component } from 'react'
-import Slider from 'react-rangeslider'
+import Slider from 'react-inputrange'
 
 class VolumeSlider extends Component {
   constructor(props, context) {
@@ -103,11 +103,11 @@ class VolumeSlider extends Component {
 
 
 ## API
-Rangeslider is bundled as a single component, that accepts data and callbacks only as `props`.
+Inputrange is bundled as a single component, that accepts data and callbacks only as `props`.
 
 ### Component
 ```jsx
-import Slider from 'react-rangeslider'
+import Slider from 'react-inputrange'
 
 // inside render
 <Slider
@@ -161,14 +161,14 @@ Feel free to contribute. Submit a Pull Request or open an issue for further disc
 MIT
 
 
-[npm_img]: https://img.shields.io/npm/v/react-rangeslider.svg?style=flat-square
-[npm_site]: https://www.npmjs.org/package/react-rangeslider
-[license_img]: https://img.shields.io/github/license/DerinMavi/react-rangeslider.svg
-[license_site]: https://github.com/DerinMavi/react-rangeslider/blob/master/LICENSE
-[npm_dm_img]: http://img.shields.io/npm/dm/react-rangeslider.svg?style=flat-square
-[npm_dm_site]: https://www.npmjs.org/package/react-rangeslider
-[trav_img]: https://api.travis-ci.org/DerinMavi/react-rangeslider.svg
-[trav_site]: https://travis-ci.org/DerinMavi/react-rangeslider
+[npm_img]: https://img.shields.io/npm/v/react-inputrange.svg?style=flat-square
+[npm_site]: https://www.npmjs.org/package/react-inputrange
+[license_img]: https://img.shields.io/github/license/DerinMavi/react-inputrange.svg
+[license_site]: https://github.com/DerinMavi/react-inputrange/blob/master/LICENSE
+[npm_dm_img]: http://img.shields.io/npm/dm/react-inputrange.svg?style=flat-square
+[npm_dm_site]: https://www.npmjs.org/package/react-inputrange
+[trav_img]: https://api.travis-ci.org/DerinMavi/react-inputrange.svg
+[trav_site]: https://travis-ci.org/DerinMavi/react-inputrange
 [std_img]: https://img.shields.io/badge/code%20style-standard-brightgreen.svg
 [std_site]: http://standardjs.com
-[unpkg]: https://unpkg.com/react-rangeslider/umd/ReactRangeslider.min.js
+[unpkg]: https://unpkg.com/react-inputrange/umd/ReactInputrange.min.js

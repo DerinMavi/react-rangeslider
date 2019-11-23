@@ -5,7 +5,7 @@ import Usage from './components/Usage'
 import Install from './components/Install'
 import Examples from './components/Examples'
 import Footer from './components/Footer'
-import '../src/rangeslider.less'
+import '../src/inputrange.less'
 import './app.less'
 
 function App () {

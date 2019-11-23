@@ -1,6 +1,6 @@
 {
   "name": "react-inputrange",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "A lightweight react component that acts as a HTML5 input range slider polyfill",
   "main": "lib/index.js",
   "scripts": {
@@ -11,12 +11,12 @@
     "test": "npm run lint && jest",
     "coverage": "npm test -- --coverage",
     "start": "cross-env NODE_ENV=development node -r babel-register docs/server.js",
-    "build:less": "lessc ./src/Rangeslider.less ./lib/index.css",
-    "build:less:umd": "lessc ./src/Rangeslider.less ./umd/rangeslider.css",
-    "build:less:umd:min": "lessc --clean-css ./src/Rangeslider.less ./umd/rangeslider.min.css",
+    "build:less": "lessc ./src/Inputrange.less ./lib/index.css",
+    "build:less:umd": "lessc ./src/Inputrange.less ./umd/inputrange.css",
+    "build:less:umd:min": "lessc --clean-css ./src/Inputrange.less ./umd/inputrange.min.css",
     "build:lib": "cross-env NODE_ENV=production babel ./src --stage 0 -d ./lib --copy-files --ignore __tests__",
-    "build:umd": "cross-env NODE_ENV=production webpack --mode=development ./src/index.js --output ./umd/rangeslider.js",
-    "build:min": "cross-env NODE_ENV=production webpack --mode=production ./src/index.js --output ./umd/rangeslider.min.js",
+    "build:umd": "cross-env NODE_ENV=production webpack --mode=development ./src/index.js --output ./umd/inputrange.js",
+    "build:min": "cross-env NODE_ENV=production webpack --mode=production ./src/index.js --output ./umd/inputrange.min.js",
     "build:docs": "cross-env NODE_ENV=production webpack --mode=production --config=docs/webpack.config.js",
     "build": "npm run build:less && npm run build:lib && npm run build:umd && npm run build:min && npm run build:less:umd && npm run build:less:umd:min",
     "prebuild": "npm run clean:lib && npm test",
@@ -36,9 +36,9 @@
     "umd"
   ],
   "keywords": [
-    "rangeslider",
-    "range-slider",
-    "react-rangeslider",
+    "inputrange",
+    "range-input",
+    "react-inputrange",
     "input",
     "range",
     "react",
@@ -54,9 +54,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/DerinMavi/react-rangeslider/issues"
+    "url": "https://github.com/DerinMavi/react-inputrange/issues"
   },
-  "homepage": "https://github.com/DerinMavi/react-rangeslider#readme",
+  "homepage": "https://github.com/DerinMavi/react-inputrange#readme",
   "devDependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",

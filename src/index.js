@@ -1,2 +1,2 @@
-import Rangeslider from './Rangeslider'
-export default Rangeslider
+import Inputrange from './Inputrange'
+export default Inputrange

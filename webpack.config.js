@@ -7,7 +7,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index'),
 
   output: {
-    library: 'ReactRangeslider',
+    library: 'ReactInputrange',
     libraryTarget: 'umd'
   },
   module: {
@@ -25,7 +25,7 @@ module.exports = {
     ]
   },
 
-  plugins: [new ExtractPlugin('RangeSlider.css')],
+  plugins: [new ExtractPlugin('Inputrange.css')],
 
   externals: [
     {

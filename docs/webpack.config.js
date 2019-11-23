@@ -108,7 +108,7 @@ if (process.env.NODE_ENV === 'production') {
     new ExtractPlugin('bundle.css'),
     new HtmlPlugin({
       appMountId: 'mount',
-      title: 'React RangeSlider',
+      title: 'React InputRange',
       template: 'docs/index.ejs'
     })
   )

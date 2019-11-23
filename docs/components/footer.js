@@ -7,7 +7,7 @@ function Footer () {
         <p>
           The project is under Open Source
           {' '}
-          <a href='https://github.com/DerinMavi/react-rangeslider/blob/master/LICENSE'>
+          <a href='https://github.com/DerinMavi/react-inputrange/blob/master/LICENSE'>
             MIT License
           </a>
         </p>

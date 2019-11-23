@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Slider from 'react-rangeslider'
+import Slider from 'react-inputrange'
 
 class Negative extends Component {
   constructor (props, context) {

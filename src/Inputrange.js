@@ -93,9 +93,6 @@ class Slider extends Component {
       // for shallow rendering
       return
     }
-    if (this.props.disabled) {
-      return
-    }
     const { orientation } = this.props
     const dimension = capitalize(constants.orientation[orientation].dimension)
     const sliderPos = this.slider[`offset${dimension}`]
@@ -140,13 +137,13 @@ class Slider extends Component {
     e.stopPropagation()
     const { onChange } = this.props
     const { target: { className, classList, dataset } } = e
-    if (!onChange || className === 'rangeslider__labels') return
+    if (!onChange || className === 'inputrange__labels') return
 
     let value = this.position(e)
 
     if (
       classList &&
-      classList.contains('rangeslider__label-item') &&
+      classList.contains('inputrange__label-item') &&
       dataset.value
     ) {
       value = parseFloat(dataset.value)
@@ -290,7 +287,7 @@ class Slider extends Component {
       ref={sl => {
         this.labels = sl
       }}
-      className={cx('rangeslider__labels')}
+      className={cx('inputrange__labels')}
     >
       {labels}
     </ul>
@@ -333,7 +330,7 @@ class Slider extends Component {
         labelItems.push(
           <li
             key={key}
-            className={cx('rangeslider__label-item')}
+            className={cx('inputrange__label-item')}
             data-value={key}
             onMouseDown={this.handleDrag}
             onTouchStart={this.handleStart}
@@ -352,11 +349,11 @@ class Slider extends Component {
           this.slider = s
         }}
         className={cx(
-          'rangeslider',
-          `rangeslider-${orientation}`,
+          'inputrange',
+          `inputrange-${orientation}`,
           {
-            'rangeslider-reverse': reverse,
-            'rangeslider-disabled': this.props.disabled
+            'inputrange-reverse': reverse,
+            'inputrange-disabled': this.props.disabled
           },
           className
         )}
@@ -369,12 +366,12 @@ class Slider extends Component {
         aria-valuenow={value}
         aria-orientation={orientation}
       >
-        <div className='rangeslider__fill' style={fillStyle} />
+        <div className='inputrange__fill' style={fillStyle} />
         <div
           ref={sh => {
             this.handle = sh
           }}
-          className='rangeslider__handle'
+          className='inputrange__handle'
           onMouseDown={this.handleStart}
           onTouchMove={this.handleDrag}
           onTouchEnd={this.handleEnd}
@@ -387,12 +384,12 @@ class Slider extends Component {
               ref={st => {
                 this.tooltip = st
               }}
-              className='rangeslider__handle-tooltip'
+              className='inputrange__handle-tooltip'
               >{/* eslint-disable-line indent */}
               <span>{this.handleFormat(value)}</span>{/* eslint-disable-next-line indent, react/jsx-indent */}
               </div>
             : null}
-          <div className='rangeslider__handle-label'>{handleLabel}</div>
+          <div className='inputrange__handle-label'>{handleLabel}</div>
         </div>
         {labels ? this.renderLabels(labelItems) : null}
       </div>
