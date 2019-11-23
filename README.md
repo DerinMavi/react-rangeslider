@@ -135,7 +135,7 @@ Prop   	 			 |  Type      |  Default      |  Description
 `step` 				 |  number    |  1          	|  step in which increments/decrements have to be made
 `value`        |  number    |               |  current value of the slider
 `orientation`  |  string    |  horizontal   |  orientation of the slider
-`tooltip`      |  boolean   |  true         |  show or hide tooltip
+`tooltip`      |  enum   |  'on'         |  sets the tooltip display mode, one of ['off', 'on', 'always']
 `reverse`  		 |  boolean   |  false			  |  reverse direction of vertical slider (top-bottom)
 `labels`       |  object    |  {}           |  object containing key-value pairs. `{ 0: 'Low', 50: 'Medium', 100: 'High'}`
 `handleLabel`  |  string    |  ''           |  string label to appear inside slider handles

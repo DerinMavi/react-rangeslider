@@ -34,7 +34,7 @@ class Slider extends Component {
     step: PropTypes.number,
     value: PropTypes.number,
     orientation: PropTypes.string,
-    tooltip: PropTypes.bool,
+    tooltip: PropTypes.oneOf(['off', 'on', 'always']),
     reverse: PropTypes.bool,
     labels: PropTypes.object,
     handleLabel: PropTypes.string,
@@ -50,10 +50,11 @@ class Slider extends Component {
     step: 1,
     value: 0,
     orientation: 'horizontal',
-    tooltip: true,
+    tooltip: 'on',
     reverse: false,
     labels: {},
-    handleLabel: ''
+    handleLabel: '',
+    alwaysShowTooltip: false
   }
 
   constructor (props, context) {
@@ -299,7 +300,7 @@ class Slider extends Component {
     const coords = this.coordinates(position)
     const fillStyle = { [dimension]: `${coords.fill}px` }
     const handleStyle = { [direction]: `${coords.handle}px` }
-    const showTooltip = tooltip && active
+    const showTooltip = (tooltip === 'always') || (tooltip === 'on' && active)
 
     const labelItems = []
     let labelKeys = Object.keys(labels)
@@ -307,7 +308,7 @@ class Slider extends Component {
     if (labelKeys.length > 0) {
       labelKeys = labelKeys.sort((a, b) => (reverse ? a - b : b - a))
 
-      for (const key of labelKeys) {
+      for (const key in labelKeys) {
         const labelPosition = this.getPositionFromValue(key)
         const labelCoords = this.coordinates(labelPosition)
         const labelStyle = { [direction]: `${labelCoords.label}px` }
