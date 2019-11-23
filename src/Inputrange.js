@@ -61,6 +61,7 @@ class Slider extends Component {
   constructor (props, context) {
     super(props, context)
 
+    this.resizeObserver = new ResizeObserver(this.handleUpdate)
     this.state = {
       active: false,
       limit: 0,
@@ -68,10 +69,19 @@ class Slider extends Component {
     }
   }
 
+  componentWillUnmount () {
+    this.clearEventListener()
+    this.resizeObserver.unobserve(this.slider)
+  }
+
+  clearEventListener = () => {
+    document.removeEventListener('mousemove', this.handleDrag)
+    document.removeEventListener('mouseup', this.handleEnd)
+  }
+
   componentDidMount () {
     this.handleUpdate()
-    const resizeObserver = new ResizeObserver(this.handleUpdate)
-    resizeObserver.observe(this.slider)
+    this.resizeObserver.observe(this.slider)
   }
 
   /**
@@ -125,19 +135,9 @@ class Slider extends Component {
     )
   }
 
-  /**
-   * Handle drag/mousemove event
-   * @param  {Object} e - Event object
-   * @return {void}
-   */
-  handleDrag = e => {
-    if (this.props.disabled) {
-      return
-    }
-    e.stopPropagation()
-    const { onChange } = this.props
+  getValue (e) {
     const { target: { className, classList, dataset } } = e
-    if (!onChange || className === 'inputrange__labels') return
+    if (className === 'inputrange__labels') return
 
     let value = this.position(e)
 
@@ -148,7 +148,22 @@ class Slider extends Component {
     ) {
       value = parseFloat(dataset.value)
     }
+    return value
+  }
 
+  /**
+   * Handle drag/mousemove event
+   * @param  {Object} e - Event object
+   * @return {void}
+   */
+  handleDrag = e => {
+    const { onChange } = this.props
+    if (this.props.disabled || !onChange) {
+      return
+    }
+    e.stopPropagation()
+
+    const value = this.getValue(e)
     onChange && onChange(value, e)
   }
 
@@ -157,20 +172,22 @@ class Slider extends Component {
    * @return {void}
    */
   handleEnd = e => {
-    if (this.props.disabled) {
+    const { onChangeComplete } = this.props
+    if (this.props.disabled || !onChangeComplete) {
       return
     }
-    const { onChangeComplete } = this.props
+    e.stopPropagation()
+
+    const value = this.getValue(e)
     this.setState(
       {
         active: false
       },
       () => {
-        onChangeComplete && onChangeComplete(e)
+        onChangeComplete && onChangeComplete(value, e)
       }
     )
-    document.removeEventListener('mousemove', this.handleDrag)
-    document.removeEventListener('mouseup', this.handleEnd)
+    this.clearEventListener()
   }
 
   /**

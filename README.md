@@ -117,7 +117,7 @@ import Slider from 'react-inputrange'
   value={Number}
   orientation={String}
   reverse={Boolean}
-  tooltip={Boolean}
+  tooltip={'on' | 'off' | 'always'}
   labels={Object}
   handleLabel={String}
   format={Function}
