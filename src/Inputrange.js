@@ -105,12 +105,12 @@ class Slider extends Component {
     }
     const { orientation } = this.props
     const dimension = capitalize(constants.orientation[orientation].dimension)
-    const sliderPos = this.slider[`offset${dimension}`]
-    const handlePos = this.handle[`offset${dimension}`]
+    const sliderWidth = this.slider[`offset${dimension}`]
+    const handleWidth = this.handle[`offset${dimension}`]
 
     this.setState({
-      limit: sliderPos - handlePos,
-      grab: handlePos / 2
+      limit: sliderWidth - handleWidth,
+      grab: handleWidth / 2
     })
   }
 
@@ -221,7 +221,7 @@ class Slider extends Component {
   /**
    * Calculate position of slider based on its value
    * @param  {number} value - Current value of slider
-   * @return {position} pos - Calculated position of slider based on value
+   * @return {number} pos - Calculated position of slider based on value
    */
   getPositionFromValue = value => {
     const { limit } = this.state
@@ -229,9 +229,7 @@ class Slider extends Component {
     const diffMaxMin = max - min
     const diffValMin = value - min
     const percentage = diffValMin / diffMaxMin
-    const pos = Math.round(percentage * limit)
-
-    return pos
+    return Math.round(percentage * limit)
   }
 
   /**
@@ -255,9 +253,8 @@ class Slider extends Component {
    * @return {number} value - Slider value
    */
   position = e => {
-    const { grab } = this.state
     const { orientation, reverse } = this.props
-
+    const { grab } = this.state
     const node = this.slider
     const coordinateStyle = constants.orientation[orientation].coordinate
     const directionStyle = reverse
@@ -271,9 +268,7 @@ class Slider extends Component {
     const pos = reverse
       ? direction - coordinate - grab
       : coordinate - direction - grab
-    const value = this.getValueFromPosition(pos)
-
-    return value
+    return this.getValueFromPosition(pos)
   }
 
   /**
@@ -286,15 +281,16 @@ class Slider extends Component {
     const { orientation, reverse } = this.props
     const value = this.getValueFromPosition(pos)
     const position = this.getPositionFromValue(value)
-    const handlePos = orientation === 'horizontal' ? position + grab : position
-    const fillPos = orientation === 'horizontal' && !reverse
-      ? handlePos
+    const handlePos = position
+    const labelPos = reverse ? position + grab : position + grab
+    const fillPos = orientation === 'horizontal'
+      ? handlePos + grab
       : limit - handlePos
-
+    // console.log('limit: ' + limit + ' grab: ' + grab + ' value: ' + value + ' fillPos: ' + fillPos + ' handlePos: ' + handlePos + ' position: ' + position)
     return {
       fill: fillPos,
       handle: handlePos,
-      label: handlePos
+      label: labelPos
     }
   }
 
@@ -303,7 +299,7 @@ class Slider extends Component {
       ref={sl => {
         this.labels = sl
       }}
-      className={cx('inputrange__labels')}
+      className={cx('inputrange__labels ' + (this.props.reverse ? 'reverse' : 'normal'))}
     >
       {labels}
     </ul>
@@ -337,23 +333,21 @@ class Slider extends Component {
 
     if (labelKeys.length > 0) {
       labelKeys = labelKeys.sort((a, b) => (reverse ? a - b : b - a))
-
-      for (const key in labelKeys) {
+      for (const key of labelKeys) {
         const labelPosition = this.getPositionFromValue(key)
         const labelCoords = this.coordinates(labelPosition)
         const labelStyle = { [direction]: `${labelCoords.label}px` }
-
         labelItems.push(
           <li
             key={key}
-            className={cx('inputrange__label-item')}
+            className={'inputrange__label-item ' + (this.props.reverse ? 'reverse' : 'normal')}
             data-value={key}
             onMouseDown={this.handleDrag}
             onTouchStart={this.handleStart}
             onTouchEnd={this.handleEnd}
             style={labelStyle}
           >
-            {this.props.labels[key]}
+            {labels[key]}
           </li>
         )
       }
@@ -402,7 +396,7 @@ class Slider extends Component {
               }}
               className='inputrange__handle-tooltip'
               >{/* eslint-disable-line indent */}
-              <span>{this.handleFormat(value)}</span>{/* eslint-disable-next-line indent, react/jsx-indent */}
+              {this.handleFormat(value)}{/* eslint-disable-next-line indent, react/jsx-indent */}
               </div>
             : null}
           <div className='inputrange__handle-label'>{handleLabel}</div>

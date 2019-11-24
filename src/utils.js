@@ -10,9 +10,9 @@ export function capitalize (str) {
 
 /**
  * Clamp position between a range
- * @param  {number} - Value to be clamped
- * @param  {number} - Minimum value in range
- * @param  {number} - Maximum value in range
+ * @param  value {number} - Value to be clamped
+ * @param  min {number} - Minimum value in range
+ * @param  max {number} - Maximum value in range
  * @return {number} - Clamped value
  */
 export function clamp (value, min, max) {
