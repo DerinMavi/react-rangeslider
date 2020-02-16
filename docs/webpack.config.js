@@ -6,7 +6,7 @@ var ExtractPlugin = require('extract-text-webpack-plugin')
 var HtmlPlugin = require('html-webpack-plugin')
 var config = {
   devtool: '#cheap-eval-source-map',
-
+  mode: 'development',
   entry: process.env.NODE_ENV === 'development'
     ? [
       'webpack-hot-middleware/client?http://localhost:3000',
@@ -15,13 +15,13 @@ var config = {
     : path.join(__dirname, 'index'),
 
   output: {
-    path: process.env.NODE_ENV === 'development' ? __dirname : 'public',
+    path: process.env.NODE_ENV === 'development' ? __dirname : path.join(__dirname, 'public'),
     publicPath: process.env.NODE_ENV === 'development' ? '/static/' : '',
     filename: 'bundle.js'
   },
 
   resolve: {
-    extensions: ['', '.js', '.css', '.less'],
+    extensions: ['.js', '.css', '.less'],
     alias: {
       'react-inputrange': path.join(__dirname, '../src/index.js')
     }
@@ -32,7 +32,7 @@ var config = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: 'babel-loader'
       },
       {
         test: /\.css$/,
@@ -68,7 +68,7 @@ if (process.env.NODE_ENV === 'development') {
   config.module.rules.push({
     test: /\.less$/,
     exclude: /node_modules/,
-    loader: 'style!css!less'
+    loader: 'style-loader!css-loader!less-loader'
   })
   config.plugins.push(
     new webpack.DefinePlugin({
@@ -76,7 +76,7 @@ if (process.env.NODE_ENV === 'development') {
         NODE_ENV: JSON.stringify('development')
       }
     }),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.HotModuleReplacementPlugin()
   )
 }
